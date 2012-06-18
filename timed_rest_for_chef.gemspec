@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'timed_rest_for_chef'
-  s.version = '0.0.3'
+  s.version = '0.0.4'
   s.summary = 'Timed REST for Chef'
   s.author = 'Chris Roberts'
   s.email = 'chrisroberts.code@gmail.com'
