@@ -1,7 +1,10 @@
 require 'timeout'
 require 'chef/rest/rest_request'
 
+# Be optimistic for when this will get patched. We can release and
+# updated gem if it doesn't make it until a later version
 if(Gem::Version.new(Chef::VERSION) < Gem::Version.new('10.14.0'))
+  Chef::Log.info "*** Adding timeout wrapper around REST requests"
 
   # Custom timeout class to make it easy to log
   # this specific type of timeout
