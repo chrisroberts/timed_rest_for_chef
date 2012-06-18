@@ -12,10 +12,10 @@ if(Gem::Version.new(Chef::VERSION) < Gem::Version.new('10.14.0'))
   end
 
   module TimedRestForChef
-    def timed_call
+    def timed_call(*args, &block)
       begin
         Timeout::timeout(config[:rest_timeout], RESTTimeout) do
-          original_call
+          original_call(*args, &block)
         end
       rescue => e
         if(e.is_a?(WrapperTimeout))
