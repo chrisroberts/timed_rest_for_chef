@@ -12,8 +12,6 @@ if(Gem::Version.new(Chef::VERSION) < Gem::Version.new('10.14.0'))
     def timed_call
       begin
         Timeout::timeout(config[:rest_timeout], RESTTimeout) do
-          puts '*' * 100
-          puts "CALLING IN WRAP"
           original_call
         end
       rescue => e
