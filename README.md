@@ -36,6 +36,21 @@ Ensuring the gem is available to chef and that client.rb file has the
 proper require line can be automated via the chef-client cookbook with
 slight modifications.
 
+With the modifications referenced below to the chef-client cookbook, this
+can be added to install this gem and configure the client.rb file:
+
+```ruby
+override_attributes(
+  :chef_client => {
+    :load_gems => {
+      :timed_rest_for_chef => {
+        :version => '0.0.4'
+      }
+    }
+  }
+)
+```
+
 References:
 ===========
 
