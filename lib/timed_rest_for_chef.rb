@@ -18,7 +18,7 @@ if(Gem::Version.new(Chef::VERSION) < Gem::Version.new('10.14.0'))
           original_call(*args, &block)
         end
       rescue => e
-        if(e.is_a?(WrapperTimeout))
+        if(e.is_a?(RESTTimeout))
           Chef::Log.warn "Maximum request timeout has been reached"
         end
         raise 
